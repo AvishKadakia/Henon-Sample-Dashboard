@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import jwt_decode from 'jwt-decode'
 import { useStateContext } from '../../contexts/ContextProvider';
 // function onSignIn(googleUser) {
 //     var profile = googleUser.getBasicProfile();
@@ -17,33 +16,15 @@ function Login() {
     const onSuccess = (res) => {
 
         //Implement fail check
-        setLogin(res.credential)
         console.log(res)
-        console.log('JWT Id Token:', res.credential);
-        const data = jwt_decode(res.credential)
-        console.log(data)
-
-        // aud: "812269451-qedg2r03ju0jeqfstbgua12d4tpftbdc.apps.googleusercontent.com"
-        // azp: "812269451-qedg2r03ju0jeqfstbgua12d4tpftbdc.apps.googleusercontent.com"
-        // email: "kadakiaa@lakeheadu.ca"
-        // email_verified: true
-        // exp: 1658781037
-        // family_name: "Kadakia"
-        // given_name: "Avish Manish"
-        // hd: "lakeheadu.ca"
-        // iat: 1658777437
-        // iss: "https://accounts.google.com"
-        // jti: "fb19db27281529e1bdd5a8f7e51325084317ed06"
-        // name: "Avish Manish Kadakia"
-        // nbf: 1658777137
-        // picture: "https://lh3.googleusercontent.com/a/AItbvmlyLFGHhhlOhhEGP0X0vZeOCm1D9LCdc2xIqgdm=s96-c"
-        // sub: "109600866839399218198"
+        setLogin(res.credential)
 
     };
 
     useEffect(() => {
         const token = localStorage.getItem("loginToken");
-        if (token !== null) {
+        if (token !== "false") {
+            console.log("Entered this")
             setLogin(token)
         }
         else {
@@ -63,16 +44,9 @@ function Login() {
 
 
     return (
-        <div>
-            {/* <GoogleLogin
-                
-                
-                cookiePolicy={'single_host_origin'}
-                style={{ marginTop: '100px' }}
-                isSignedIn={true}
-            /> */}
-            <div id="googleSignInDiv" ></div>
-        </div>
+
+        <div id="googleSignInDiv" ></div>
+
     );
 }
 

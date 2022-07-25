@@ -94,13 +94,22 @@ const App = () => {
                 {/* dashboard  */}
                 <Route
                   path="/login"
-                  element={isloggedIn ? <Navigate to="/" /> : <Login />}
+                  element={
+                    isloggedIn ? (
+                      <Navigate to="/Henon-Sample-Dashboard" />
+                    ) : (
+                      <Login />
+                    )
+                  }
                 />
                 <Route
                   path="/Henon-Sample-Dashboard"
                   element={checkAuthentication(<Ecommerce />)}
                 />
-                <Route path="/" element={checkAuthentication(<Ecommerce />)} />
+                <Route
+                  path="/"
+                  element={<Navigate to="/Henon-Sample-Dashboard" />}
+                />
 
                 <Route
                   path="/ecommerce"

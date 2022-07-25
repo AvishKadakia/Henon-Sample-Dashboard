@@ -35,14 +35,14 @@ const Ecommerce = () => {
               <BsCurrencyDollar />
             </button>
           </div>
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <Button
               color="white"
               bgColor={currentColor}
               text="Download"
               borderRadius="10px"
             />
-          </div>
+          </div> */}
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
@@ -105,14 +105,14 @@ const Ecommerce = () => {
               <div className="mt-5">
                 <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
               </div>
-              <div className="mt-10">
+              {/* <div className="mt-10">
                 <Button
                   color="white"
                   bgColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
                 />
-              </div>
+              </div> */}
             </div>
             <div>
               <Stacked currentMode={currentMode} width="320px" height="360px" />
@@ -155,7 +155,7 @@ const Ecommerce = () => {
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
-            <DropDown currentMode={currentMode} />
+            {/* <DropDown currentMode={currentMode} /> */}
           </div>
           <div className="mt-10 w-72 md:w-400">
             {recentTransactions.map((item) => (
@@ -181,14 +181,14 @@ const Ecommerce = () => {
             ))}
           </div>
           <div className="flex justify-between items-center mt-5 border-t-1 border-color">
-            <div className="mt-3">
+            {/* <div className="mt-3">
               <Button
                 color="white"
                 bgColor={currentColor}
                 text="Add"
                 borderRadius="10px"
               />
-            </div>
+            </div> */}
 
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
@@ -281,7 +281,7 @@ const Ecommerce = () => {
               ))}
             </div>
           </div>
-          <div className="flex justify-between items-center mt-5 border-t-1 border-color">
+          {/* <div className="flex justify-between items-center mt-5 border-t-1 border-color">
             <div className="mt-3">
               <Button
                 color="white"
@@ -289,10 +289,10 @@ const Ecommerce = () => {
                 text="Add"
                 borderRadius="10px"
               />
-            </div>
+            </div> 
 
-            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
-          </div>
+          <p className="text-gray-400 text-sm">36 Recent Transactions</p>
+        </div> */}
         </div>
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
@@ -314,19 +314,19 @@ const Ecommerce = () => {
                 This will be the small description for the news you have shown
                 here. There could be some great info.
               </p>
-              <div className="mt-3">
+              {/* <div className="mt-3">
                 <Button
                   color="white"
                   bgColor={currentColor}
                   text="Read More"
                   borderRadius="10px"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

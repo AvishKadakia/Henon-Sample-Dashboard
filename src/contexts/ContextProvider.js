@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
 const StateContext = createContext();
 
 const initialState = {
@@ -16,6 +18,7 @@ export const ContextProvider = ({ children }) => {
   const [themeSettings, setThemeSettings] = useState(false);
   const [activeMenu, setActiveMenu] = useState(false);
   const [isloggedIn, setIsloggedIn] = useState(false);
+  const [profileInfo, setProfileInfo] = useState({});
   const [isClicked, setIsClicked] = useState(initialState);
 
   const setMode = (e) => {
@@ -29,19 +32,28 @@ export const ContextProvider = ({ children }) => {
   };
 
   const setLogin = (token) => {
+    const data = jwt_decode(token);
+    setProfileInfo({
+      name: data.given_name.charAt(0).toUpperCase() + data.given_name.slice(1),
+      picture: data.picture,
+      email: data.email,
+      loginType: "google",
+    });
     setIsloggedIn(true);
     localStorage.setItem("loginToken", token);
   };
 
   const setLogout = (token) => {
+    localStorage.setItem("loginToken", false);
     setIsloggedIn(false);
     setActiveMenu(false);
-    localStorage.setItem("loginToken", null);
+    setProfileInfo({});
   };
 
   const handleClick = (clicked) =>
     setIsClicked({ ...initialState, [clicked]: true });
   const checkAuthentication = (path) => {
+    console.log("isloggedIn", isloggedIn);
     if (isloggedIn === false) {
       return <Navigate to="/login" />;
     } else {
@@ -72,6 +84,7 @@ export const ContextProvider = ({ children }) => {
         setLogin,
         setLogout,
         checkAuthentication,
+        profileInfo,
       }}
     >
       {children}
