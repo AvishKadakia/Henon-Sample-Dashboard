@@ -1,6 +1,5 @@
 export { default as Ecommerce } from './Ecommerce';
 export { default as Employees } from './Employees';
-export { default as Editor } from './Editor';
 export { default as ColorPicker } from './ColorPicker';
 export { default as Login } from './Login';
 export { default as Area } from './Charts/Area';

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import jwt_decode from 'jwt-decode'
-import { useStateContext } from '../contexts/ContextProvider';
+import { useStateContext } from '../../contexts/ContextProvider';
 // function onSignIn(googleUser) {
 //     var profile = googleUser.getBasicProfile();
 //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -10,9 +10,14 @@ import { useStateContext } from '../contexts/ContextProvider';
 // }
 
 function Login() {
+    const {
+        setLogin
+    } = useStateContext();
 
     const onSuccess = (res) => {
+
         //Implement fail check
+        setLogin(res.credential)
         console.log(res)
         console.log('JWT Id Token:', res.credential);
         const data = jwt_decode(res.credential)
@@ -36,23 +41,24 @@ function Login() {
 
     };
 
-    const onFailure = (res) => {
-        console.log('Login failed: res:', res);
-        alert(
-            `Failed to login.`
-        );
-    };
     useEffect(() => {
-        /*global google*/
-        google.accounts.id.initialize({
-            client_id: "812269451-qedg2r03ju0jeqfstbgua12d4tpftbdc.apps.googleusercontent.com",
-            callback: onSuccess
-        });
+        const token = localStorage.getItem("loginToken");
+        if (token !== null) {
+            setLogin(token)
+        }
+        else {
+            /*global google*/
+            google.accounts.id.initialize({
+                client_id: "812269451-qedg2r03ju0jeqfstbgua12d4tpftbdc.apps.googleusercontent.com",
+                callback: onSuccess
+            });
 
-        google.accounts.id.renderButton(
-            document.getElementById("googleSignInDiv"),
-            { theme: "outline", size: "large" }
-        )
+            google.accounts.id.renderButton(
+                document.getElementById("googleSignInDiv"),
+                { theme: "outline", size: "large" }
+            )
+        }
+
     }, []);
 
 

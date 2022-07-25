@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-
+import { Navigate } from "react-router-dom";
 const StateContext = createContext();
 
 const initialState = {
@@ -37,12 +37,18 @@ export const ContextProvider = ({ children }) => {
   const setLogout = (token) => {
     setIsloggedIn(false);
     setActiveMenu(false);
-    localStorage.setItem("loginToken", token);
+    localStorage.setItem("loginToken", null);
   };
 
   const handleClick = (clicked) =>
     setIsClicked({ ...initialState, [clicked]: true });
-
+  const checkAuthentication = (path) => {
+    if (isloggedIn === false) {
+      return <Navigate to="/login" />;
+    } else {
+      return path;
+    }
+  };
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <StateContext.Provider
@@ -66,6 +72,7 @@ export const ContextProvider = ({ children }) => {
         isloggedIn,
         setLogin,
         setLogout,
+        checkAuthentication,
       }}
     >
       {children}

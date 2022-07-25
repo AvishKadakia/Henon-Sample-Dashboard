@@ -1,26 +1,20 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
   Ecommerce,
-  Orders,
-  Calendar,
-  Employees,
   Stacked,
   Pyramid,
-  Customers,
-  Kanban,
   Line,
   Area,
   Bar,
-  Pie,
   Financial,
+  Pie,
   ColorPicker,
   ColorMapping,
-  Editor,
   Login,
 } from "./pages";
 import "./App.css";
@@ -37,6 +31,7 @@ const App = () => {
     themeSettings,
     setThemeSettings,
     isloggedIn,
+    checkAuthentication,
   } = useStateContext();
 
   useEffect(() => {
@@ -92,18 +87,42 @@ const App = () => {
 
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element={<Login />} />
-                <Route path="/ecommerce" element={<Ecommerce />} />
+                <Route
+                  path="/login"
+                  element={isloggedIn ? <Navigate to="/" /> : <Login />}
+                />
+                <Route
+                  path="/Henon-Sample-Dashboard"
+                  element={checkAuthentication(<Ecommerce />)}
+                />
+                <Route path="/" element={checkAuthentication(<Ecommerce />)} />
+
+                <Route
+                  path="/ecommerce"
+                  element={checkAuthentication(<Ecommerce />)}
+                />
 
                 {/* charts  */}
-                <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/color-mapping" element={<ColorMapping />} />
-                <Route path="/pyramid" element={<Pyramid />} />
-                <Route path="/stacked" element={<Stacked />} />
+                <Route path="/line" element={checkAuthentication(<Line />)} />
+                <Route path="/area" element={checkAuthentication(<Area />)} />
+                <Route path="/bar" element={checkAuthentication(<Bar />)} />
+                <Route path="/pie" element={checkAuthentication(<Pie />)} />
+                <Route
+                  path="/financial"
+                  element={checkAuthentication(<Financial />)}
+                />
+                <Route
+                  path="/color-mapping"
+                  element={checkAuthentication(<ColorMapping />)}
+                />
+                <Route
+                  path="/pyramid"
+                  element={checkAuthentication(<Pyramid />)}
+                />
+                <Route
+                  path="/stacked"
+                  element={checkAuthentication(<Stacked />)}
+                />
               </Routes>
             </div>
             <Footer />
