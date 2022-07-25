@@ -30,7 +30,6 @@ export const ContextProvider = ({ children }) => {
 
   const setLogin = (token) => {
     setIsloggedIn(true);
-    setActiveMenu(true);
     localStorage.setItem("loginToken", token);
   };
 
