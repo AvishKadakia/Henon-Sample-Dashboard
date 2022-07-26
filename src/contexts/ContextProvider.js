@@ -33,7 +33,7 @@ export const ContextProvider = ({ children }) => {
 
   const setLogin = (token, type) => {
     console.log(token);
-    if (type == "google" && token !== "null") {
+    if (type == "google") {
       const data = jwt_decode(token);
       setProfileInfo({
         name:
