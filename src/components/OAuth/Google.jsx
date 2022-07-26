@@ -23,7 +23,6 @@ function Login() {
     useEffect(() => {
         const token = localStorage.getItem("loginToken");
         if (token !== "false") {
-            console.log("Entered this")
             setLogin(token)
         }
         else {

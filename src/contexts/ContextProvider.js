@@ -58,7 +58,6 @@ export const ContextProvider = ({ children }) => {
   const handleClick = (clicked) =>
     setIsClicked({ ...initialState, [clicked]: true });
   const checkAuthentication = (path) => {
-    console.log("isloggedIn", isloggedIn);
     if (isloggedIn === false) {
       return <Navigate to="/login" />;
     } else {
