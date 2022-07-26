@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
@@ -45,7 +45,7 @@ const App = () => {
 
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
-      <BrowserRouter>
+      <HashRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           {isloggedIn ? (
             <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -136,7 +136,7 @@ const App = () => {
             <Footer />
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };
