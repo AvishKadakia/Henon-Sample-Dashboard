@@ -14,10 +14,9 @@ function Login() {
     } = useStateContext();
 
     const onSuccess = (res) => {
-
-        //Implement fail check
-        console.log(res)
-        setLogin(res.credential)
+        if (res.credential) {
+            setLogin(res.credential, "google")
+        }
 
     };
 

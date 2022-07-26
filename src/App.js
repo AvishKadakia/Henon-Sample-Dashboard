@@ -137,6 +137,10 @@ const App = () => {
                   path="/stacked"
                   element={checkAuthentication(<Stacked />)}
                 />
+                <Route
+                  path="/privacy-policy"
+                  element={<Navigate to="/Henon-Sample-Dashboard" />}
+                />
               </Routes>
             </div>
             <Footer />

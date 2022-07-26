@@ -31,20 +31,25 @@ export const ContextProvider = ({ children }) => {
     localStorage.setItem("colorMode", color);
   };
 
-  const setLogin = (token) => {
-    const data = jwt_decode(token);
-    setProfileInfo({
-      name: data.given_name.charAt(0).toUpperCase() + data.given_name.slice(1),
-      picture: data.picture,
-      email: data.email,
-      loginType: "google",
-    });
-    setIsloggedIn(true);
-    localStorage.setItem("loginToken", token);
+  const setLogin = (token, type) => {
+    if (type == "google") {
+      const data = jwt_decode(token);
+      setProfileInfo({
+        name:
+          data.given_name.charAt(0).toUpperCase() + data.given_name.slice(1),
+        picture: data.picture,
+        email: data.email,
+        loginType: type,
+      });
+      setIsloggedIn(true);
+      localStorage.setItem("loginToken", token);
+      localStorage.setItem("loginType", "google");
+    }
   };
 
   const setLogout = (token) => {
     localStorage.setItem("loginToken", false);
+    localStorage.setItem("loginType", false);
     setIsloggedIn(false);
     setActiveMenu(false);
     setProfileInfo({});
