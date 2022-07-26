@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Henon-Sample-Dashboard/static/css/main.1e588a8f.css",
-    "main.js": "/Henon-Sample-Dashboard/static/js/main.b504773a.js",
+    "main.js": "/Henon-Sample-Dashboard/static/js/main.5d7766c7.js",
     "static/media/product4.jpg": "/Henon-Sample-Dashboard/static/media/product4.767417bea17688d6d8ce.jpg",
     "static/media/product2.jpg": "/Henon-Sample-Dashboard/static/media/product2.e93f12ec1b20980a1bd1.jpg",
     "static/media/product1.jpg": "/Henon-Sample-Dashboard/static/media/product1.b8efc7a24c281ed8911b.jpg",
@@ -16,10 +16,10 @@
     "static/media/product5.jpg": "/Henon-Sample-Dashboard/static/media/product5.f4c5d8f991b753ca0fcc.jpg",
     "index.html": "/Henon-Sample-Dashboard/index.html",
     "main.1e588a8f.css.map": "/Henon-Sample-Dashboard/static/css/main.1e588a8f.css.map",
-    "main.b504773a.js.map": "/Henon-Sample-Dashboard/static/js/main.b504773a.js.map"
+    "main.5d7766c7.js.map": "/Henon-Sample-Dashboard/static/js/main.5d7766c7.js.map"
   },
   "entrypoints": [
     "static/css/main.1e588a8f.css",
-    "static/js/main.b504773a.js"
+    "static/js/main.5d7766c7.js"
   ]
 }
