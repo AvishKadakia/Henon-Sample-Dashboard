@@ -42,6 +42,7 @@ export const ContextProvider = ({ children }) => {
         loginType: type,
       });
       setIsloggedIn(true);
+      setActiveMenu(false);
       localStorage.setItem("loginToken", token);
       localStorage.setItem("loginType", "google");
     }
