@@ -21,11 +21,8 @@ function Login() {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem("loginToken");
-        if (token !== "false" && token !== "null" && token !== "undefined" && token !== undefined && token !== null && token !== false) {
-            setLogin(token, "google")
-        }
-        else {
+        
+        
             /*global google*/
             google.accounts.id.initialize({
                 client_id: "812269451-qedg2r03ju0jeqfstbgua12d4tpftbdc.apps.googleusercontent.com",
@@ -36,7 +33,7 @@ function Login() {
                 document.getElementById("googleSignInDiv"),
                 { theme: "outline", size: "large" }
             )
-        }
+        
 
     }, []);
 

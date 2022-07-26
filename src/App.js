@@ -32,6 +32,7 @@ const App = () => {
     setThemeSettings,
     isloggedIn,
     checkAuthentication,
+    setLogin
   } = useStateContext();
 
   useEffect(() => {
@@ -40,6 +41,10 @@ const App = () => {
     if (currentThemeColor && currentThemeMode) {
       setCurrentColor(currentThemeColor);
       setCurrentMode(currentThemeMode);
+    }
+    const token = localStorage.getItem("loginToken");
+    if (token !== "false" && token !== "null" && token !== "undefined" && token !== undefined && token !== null && token !== false) {
+        setLogin(token, "google")
     }
   }, []);
 
