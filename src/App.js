@@ -94,7 +94,7 @@ const App = () => {
                 {/* dashboard  */}
                 <Route
                   path="/Henon-Sample-Dashboard"
-                  element={isloggedIn ? <Login /> : <Ecommerce />}
+                  element={isloggedIn ? <Ecommerce /> : <Login />}
                 />
                 <Route
                   path="/"
