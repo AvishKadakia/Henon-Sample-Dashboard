@@ -59,7 +59,7 @@ export const ContextProvider = ({ children }) => {
     setIsClicked({ ...initialState, [clicked]: true });
   const checkAuthentication = (path) => {
     if (isloggedIn === false) {
-      return <Navigate to="/Henon-Sample-Dashboard/login" />;
+      return <Navigate to="/Henon-Sample-Dashboard" />;
     } else {
       return path;
     }
