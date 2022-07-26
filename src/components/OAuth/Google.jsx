@@ -22,7 +22,7 @@ function Login() {
 
     useEffect(() => {
         const token = localStorage.getItem("loginToken");
-        if (token !== "false" && token !== "null" && token !== "undefined") {
+        if (token !== "false" && token !== "null" && token !== "undefined" && token !== undefined && token !== null && token !== false) {
             setLogin(token, "google")
         }
         else {
